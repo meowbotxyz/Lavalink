@@ -134,7 +134,6 @@ module.exports = {
 
 ```
 ## 👥 Core Team & Infrastructure
-<div align="center">
 | Engineer | Role | Responsibilities |
 |---|---|---|
 | **Ws ZieeLord** (@4qg1) | **Lead Architect** | Container Architecture, Server Infrastructure & Web Dashboard Sync |
@@ -143,4 +142,3 @@ module.exports = {
 <div align="center">
 Copyright © 2026 **Ws ZieeLord & NNK**. All rights reserved.
 *Confidential internal deployment assets. Do not distribute.*
-</div>
