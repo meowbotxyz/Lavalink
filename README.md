@@ -116,6 +116,7 @@ The repository includes YoutubeRestHandlerBinaryCompatibilityTest.java to test b
 <a href="#-go-configmusicgo"><img src="https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white" alt="Go" /></a>
 <a href="#-json-configmusicjson"><img src="https://img.shields.io/badge/JSON-000000?style=for-the-badge&logo=json&logoColor=white" alt="JSON" /></a>
 </div>
+
 ### 🟡 JavaScript / Node.js (config/music.js)
 > *Poru, Kazagumo, Shoukaku, MagmaStream*
 > 
