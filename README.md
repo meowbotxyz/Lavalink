@@ -133,9 +133,10 @@ module.exports = {
   defaultSearchEngine: "youtube"
 };
 ```
-### 🔵 TypeScript (config/music.ts)
-Lavalink-Client, Fastlink
 
+### 🔵 TypeScript (config/music.ts)
+> *Lavalink-Client, Fastlink*
+>
 ```
 export interface LavalinkNodeConfig {
   name: string;
