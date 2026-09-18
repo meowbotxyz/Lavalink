@@ -1,4 +1,5 @@
-
+Dưới đây là toàn bộ nội dung file README.md hoàn chỉnh cho repository máy chủ Lavalink, đã được sửa triệt để lỗi hiển thị code, chuẩn hóa các thẻ đóng/mở HTML và bố trí lại hàng nút chuyển đổi trực quan:
+```markdown
 <div align="center">
 
 # 🎵 Meow Bot — Lavalink Music Node
@@ -107,8 +108,15 @@ docker logs -f meow-lavalink
 The repository includes YoutubeRestHandlerBinaryCompatibilityTest.java to test binary compatibility with the YouTube plugin REST API wrapper:
  * Validates plugin classpath bindings against current Lavalink binary releases.
  * Ensures non-breaking changes when updating plugin dependencies.
-## 🔌 Client Connection & Language Switcher
-Choose your client runtime below to view the corresponding connection config:
+## 🔌 Bot Integration & Client Examples
+<div align="center">
+<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JS" />
+<img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TS" />
+<img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Py" />
+<img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java" />
+<img src="https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white" alt="Go" />
+<img src="https://img.shields.io/badge/JSON-000000?style=for-the-badge&logo=json&logoColor=white" alt="JSON" />
+</div>
 <details open>
 <summary><b>🟡 JavaScript / Node.js (<code>config/music.js</code>)</b> — <i>Poru, Kazagumo, Shoukaku, MagmaStream</i></summary>
 ```javascript
@@ -208,7 +216,7 @@ var MeowAudioNode = LavalinkNode{
 ```
 </details>
 <details>
-<summary><b>📄 Static Config (<code>config/music.json</code>)</b> — <i>Universal JSON configuration</i></summary>
+<summary><b>📄 Static JSON (<code>config/music.json</code>)</b> — <i>Universal JSON configuration</i></summary>
 ```json
 {
   "lavalink": {
@@ -234,3 +242,6 @@ var MeowAudioNode = LavalinkNode{
 Copyright © 2026 **Ws ZieeLord & NNK**. All rights reserved.
 *Confidential internal deployment assets. Do not distribute.*
 </div>
+```
+
+```
