@@ -1,3 +1,4 @@
+
 <div align="center">
 
 # 🎵 Meow Bot — Lavalink Music Node
@@ -49,10 +50,10 @@ server:
 lavalink:
   plugins:
     - dependency: "dev.lavalink.youtube:youtube-plugin:1.18.2"
-      repository: "https://maven.lavalink.dev/releases"
+      repository: "[https://maven.lavalink.dev/releases](https://maven.lavalink.dev/releases)"
 
   server:
-    password: "you_password"
+    password: "YOUR_SECURE_LAVALINK_PASSWORD"
     sources:
       youtube: false
       soundcloud: true
@@ -74,7 +75,7 @@ plugins:
       - WEB
       - ANDROID_MUSIC
       - TV
-      enabled: true
+
 logging:
   level:
     root: INFO
