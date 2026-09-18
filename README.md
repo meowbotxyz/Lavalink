@@ -1,3 +1,4 @@
+
 <div align="center">
 
 # 🎵 Meow Bot — Lavalink Music Node
@@ -108,15 +109,16 @@ The repository includes YoutubeRestHandlerBinaryCompatibilityTest.java to test b
  * Ensures non-breaking changes when updating plugin dependencies.
 ## 🔌 Bot Integration & Client Examples
 <div align="center">
-<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JS" />
-<img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TS" />
-<img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Py" />
-<img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java" />
-<img src="https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white" alt="Go" />
-<img src="https://img.shields.io/badge/JSON-000000?style=for-the-badge&logo=json&logoColor=white" alt="JSON" />
+<a href="#-javascript--nodejs-configmusicjs"><img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JS" /></a>
+<a href="#-typescript-configmusicts"><img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TS" /></a>
+<a href="#-python-configmusicpy"><img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Py" /></a>
+<a href="#-java-configlavalinkconfigjava"><img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java" /></a>
+<a href="#-go-configmusicgo"><img src="https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white" alt="Go" /></a>
+<a href="#-json-configmusicjson"><img src="https://img.shields.io/badge/JSON-000000?style=for-the-badge&logo=json&logoColor=white" alt="JSON" /></a>
 </div>
-<details open>
-<summary><b>🟡 JavaScript / Node.js (<code>config/music.js</code>)</b> — <i>Poru, Kazagumo, Shoukaku, MagmaStream</i></summary>
+### 🟡 JavaScript / Node.js (config/music.js)
+> *Poru, Kazagumo, Shoukaku, MagmaStream*
+> 
 ```javascript
 module.exports = {
   nodes: [
@@ -132,9 +134,9 @@ module.exports = {
 };
 
 ```
-</details>
-<details>
-<summary><b>🔵 TypeScript (<code>config/music.ts</code>)</b> — <i>Lavalink-Client, Fastlink</i></summary>
+### 🔵 TypeScript (config/music.ts)
+> *Lavalink-Client, Fastlink*
+> 
 ```typescript
 export interface LavalinkNodeConfig {
   name: string;
@@ -158,9 +160,9 @@ export const musicConfig: { nodes: LavalinkNodeConfig[]; defaultSearchEngine: st
 };
 
 ```
-</details>
-<details>
-<summary><b>🐍 Python (<code>config/music.py</code>)</b> — <i>Wavelink, Pomice, Mafic</i></summary>
+### 🐍 Python (config/music.py)
+> *Wavelink, Pomice, Mafic*
+> 
 ```python
 LAVALINK_CONFIG = {
     "nodes": [
@@ -175,9 +177,9 @@ LAVALINK_CONFIG = {
 }
 
 ```
-</details>
-<details>
-<summary><b>☕ Java (<code>config/LavalinkConfig.java</code>)</b> — <i>Lavalink-Client Java / JDA</i></summary>
+### ☕ Java (config/LavalinkConfig.java)
+> *Lavalink-Client Java / JDA*
+> 
 ```java
 package config;
 
@@ -189,9 +191,9 @@ public class LavalinkConfig {
 }
 
 ```
-</details>
-<details>
-<summary><b>🐹 Go (<code>config/music.go</code>)</b> — <i>Waterlink / Disgord</i></summary>
+### 🐹 Go (config/music.go)
+> *Waterlink / Disgord*
+> 
 ```go
 package config
 
@@ -212,9 +214,9 @@ var MeowAudioNode = LavalinkNode{
 }
 
 ```
-</details>
-<details>
-<summary><b>📄 Static JSON (<code>config/music.json</code>)</b> — <i>Universal JSON configuration</i></summary>
+### 📄 JSON (config/music.json)
+> *Universal JSON configuration*
+> 
 ```json
 {
   "lavalink": {
@@ -228,18 +230,11 @@ var MeowAudioNode = LavalinkNode{
 }
 
 ```
-</details>
 ## 👥 Core Team & Infrastructure
-<div align="center">
 | Engineer | Role | Responsibilities |
 |---|---|---|
 | **Ws ZieeLord** (@4qg1) | **Lead Architect** | Container Architecture, Server Infrastructure & Web Dashboard Sync |
 | **NNK** (@nnk_cool1) | **System Integrator** | Bot Music Client Integration, Audio Filter Tuning & Performance |
-</div>
-<div align="center">
+
 Copyright © 2026 **Ws ZieeLord & NNK**. All rights reserved.
 *Confidential internal deployment assets. Do not distribute.*
-</div>
-```
-
-```
