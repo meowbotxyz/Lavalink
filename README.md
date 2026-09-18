@@ -48,14 +48,11 @@ server:
 
 lavalink:
   plugins:
-    # Plugin YouTube được cộng đồng lavalink-devs duy trì, thay cho source cũ đã bị deprecated.
-    # Version hiện tại (theo trang Releases bạn vừa check): 1.18.2
-    # Nếu về sau có bản mới hơn, xem tại: https://github.com/lavalink-devs/youtube-source/releases
     - dependency: "dev.lavalink.youtube:youtube-plugin:1.18.2"
       repository: "https://maven.lavalink.dev/releases"
 
   server:
-    password: "matkhau_cua_ban_123"
+    password: "you_password"
     sources:
       youtube: false
       soundcloud: true
@@ -74,17 +71,10 @@ plugins:
     allowDirectVideoIds: true
     allowDirectPlaylistIds: true
     clients:
-      - WEB            # Search + phát bình thường (không OAuth, đủ cho hầu hết video)
-      - ANDROID_MUSIC   # Dự phòng thêm cho search + phát bình thường
-      - TV              # DUY NHẤT client hỗ trợ OAuth thật -> phát được cả video "requires login"
-    oauth:
+      - WEB
+      - ANDROID_MUSIC
+      - TV
       enabled: true
-      # Sau khi deploy, xem Deploy Logs — sẽ in ra link https://www.google.com/device + mã pairing.
-      # Mở link đó, đăng nhập bằng acc Google PHỤ (không dùng acc chính), nhập mã, xác nhận.
-      # Sau khi xong, log in ra "refreshToken": "...". Copy giá trị đó dán vào dòng dưới rồi
-      # deploy lại 1 lần nữa, để lần sau khỏi phải pairing lại mỗi khi container rebuild.
-      # refreshToken: ""
-
 logging:
   level:
     root: INFO
