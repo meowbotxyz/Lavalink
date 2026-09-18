@@ -1,14 +1,14 @@
 <div align="center">
 
-# 🎵 Meow Bot — Lavalink Audio Node
+# 🎵 Meow Bot — Lavalink Music Node
 
 **High-Performance Standalone Audio Routing Engine powering Meow Bot**
 
 [![Lavalink](https://img.shields.io/badge/Lavalink-v4.x-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://github.com/lavalink-devs/Lavalink)
+[![Docker](https://img.shields.io/badge/Docker-Containerized-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
 [![Java](https://img.shields.io/badge/Java-17%20%2F%2021-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)](https://www.oracle.com/java/)
 [![Audio Engine](https://img.shields.io/badge/Audio-Lossless%20Stream-brightgreen?style=for-the-badge&logo=spotify&logoColor=white)](https://meowbot.xyz)
-[![Hosting](https://img.shields.io/badge/Host-OriHost%20Engine-00C7B7?style=for-the-badge&logo=serverfault&logoColor=white)](https://ppanel.orihost.com)
-[![Status](https://img.shields.io/badge/Node-Internal%20Private-red?style=for-the-badge&logo=git&logoColor=white)](LICENSE)
+[![Status](https://img.shields.io/badge/Access-Private%20%2F%20Internal-red?style=for-the-badge&logo=git&logoColor=white)](LICENSE)
 
 [🌐 Web Dashboard](https://meowbot.xyz) • [💬 Support Server](https://discord.gg/PaqFDgWe4J) • [➕ Invite Bot](https://discord.com/oauth2/authorize?client_id=1491052906496131296)
 
@@ -16,28 +16,130 @@
 
 </div>
 
-> **Chú ý:** Đây là repository cấu hình máy chủ âm thanh riêng tư (Lavalink v4 node) phục vụ hệ thống phát nhạc chất lượng cao cho **Meow Bot**. Cổng kết nối và mật khẩu được mã hóa và bảo mật nội bộ.
+> **Notice:** This repository contains the standalone audio server configuration and containerized deployment workflow for **Meow Bot**. Network endpoints and authentication secrets are strictly confidential.
 
 ---
 
-## 📌 Tổng Quan Hệ Thống (System Overview)
+## 📌 System Overview
 
-Máy chủ Lavalink này chịu trách nhiệm:
-* Xử lý, giải mã và trích xuất luồng âm thanh độc lập với tiến trình bot chính để tránh nghẽn luồng sự kiện Discord Gateway.
-* Hỗ trợ tìm kiếm và phát âm thanh từ nhiều nền tảng: YouTube, Deezer, Spotify, SoundCloud, Bandcamp và Direct HTTP links.
-* Tích hợp các bộ lọc âm thanh nâng cao (Bassboost, Nightcore, 8D, Karaoke, Tremolo, Vaporwave).
+This dedicated Lavalink node isolates heavy multimedia decoding and stream extraction from the core bot process:
+* **Offloaded Audio Processing:** Prevents audio transcoding from blocking the Discord Gateway event loop.
+* **Multi-Source Support:** Streams audio from YouTube, Deezer, Spotify, SoundCloud, Bandcamp, and direct HTTP streams.
+* **Binary Testing & Stability:** Includes automated source plugin compatibility verifications to guarantee continuous uptime across upstream API updates.
 
 ---
 
-## 🗂️ Cấu Trúc Thư Mục Node (Directory Layout)
+## 🗂️ Repository Directory Structure
 
 ```text
 Meow-Lavalink/
-├── plugins/                 # Plugins mở rộng (LavaSrc, YouTube Source Plugin)
-│   ├── lavasrc-plugin.jar
-│   └── youtube-plugin.jar
-├── application.yml          # File cấu hình port, password, sources và filters
-├── Lavalink.jar             # Lavalink standalone binary executable
-├── start.sh                 # Bash script khởi động máy chủ (Linux/OriHost)
-├── start.bat                # Batch script khởi động máy chủ (Windows)
-└── README.md                # Tài liệu vận hành nội bộ
+├── Dockerfile                                    # Multi-stage container build definition
+├── README.md                                     # Technical node documentation
+├── YoutubeRestHandlerBinaryCompatibilityTest.java # Binary compatibility test suite for YouTube source
+└── application.yml                               # Core Lavalink server configuration & plugin mappings
+
+```
+## ⚙️ Configuration (application.yml)
+The server configuration defines plugins, network port bindings, and audio filter pipelines:
+```yaml
+server:
+  port: 2333
+  address: 0.0.0.0
+
+lavalink:
+  plugins:
+    - dependency: "dev.arbjerg.lavalink.libraries.v4:lavasrc-plugin:4.0.0"
+      repository: "[https://maven.lavalink.dev/releases](https://maven.lavalink.dev/releases)"
+    - dependency: "dev.lavalink.youtube:youtube-plugin:1.4.0"
+      repository: "[https://maven.lavalink.dev/releases](https://maven.lavalink.dev/releases)"
+
+  server:
+    password: "YOUR_SECURE_LAVALINK_PASSWORD"
+    sources:
+      youtube: false # Disabled native provider; managed via youtube-plugin
+      bandcamp: true
+      soundcloud: true
+      twitch: true
+      vimeo: true
+      http: true
+      local: false
+    filters:
+      volume: true
+      equalizer: true
+      karaoke: true
+      timescale: true
+      tremolo: true
+      vibrato: true
+      distortion: true
+      rotation: true
+      channelMix: true
+      lowPass: true
+    bufferDurationMs: 400
+    frameBufferDurationMs: 5000
+    opusEncodingQuality: 10
+    resamplingQuality: HIGH
+    trackStuckThresholdMs: 10000
+    useSeekGhosting: true
+    playerUpdateInterval: 5
+
+logging:
+  file:
+    path: ./logs/lavalink.log
+  level:
+    root: INFO
+    lavalink: INFO
+
+```
+## 🐳 Docker Deployment
+The containerized workflow handles Java runtime dependencies and plugin caching automatically.
+### 1. Build the Docker Image
+```bash
+docker build -t meow-lavalink:latest .
+
+```
+### 2. Run the Container
+```bash
+docker run -d \
+  --name meow-lavalink \
+  -p 2333:2333 \
+  --restart unless-stopped \
+  meow-lavalink:latest
+
+```
+### 3. Check Container Logs
+```bash
+docker logs -f meow-lavalink
+
+```
+## 🧪 Compatibility Verification
+The repository includes YoutubeRestHandlerBinaryCompatibilityTest.java to test binary compatibility with the YouTube plugin REST API wrapper:
+ * Validates plugin classpath bindings against current Lavalink binary releases.
+ * Ensures non-breaking changes when updating plugin dependencies.
+## 🔌 Bot Integration (config/music.js)
+Configure the node client inside Meow Bot (using Poru, Kazagumo, or Shoukaku):
+```javascript
+module.exports = {
+  nodes: [
+    {
+      name: "Meow-Production-Node",
+      host: "127.0.0.1",
+      port: 2333,
+      password: "YOUR_SECURE_LAVALINK_PASSWORD",
+      secure: false
+    }
+  ],
+  defaultSearchEngine: "youtube"
+};
+
+```
+## 👥 Core Team & Infrastructure
+<div align="center">
+| Engineer | Role | Responsibilities |
+|---|---|---|
+| **Ws ZieeLord** (@4qg1) | **Lead Architect** | Container Architecture, Server Infrastructure & Web Dashboard Sync |
+| **NNK** (@nnk_cool1) | **System Integrator** | Bot Music Client Integration, Audio Filter Tuning & Performance |
+</div>
+<div align="center">
+Copyright © 2026 **Ws ZieeLord & NNK**. All rights reserved.
+*Confidential internal deployment assets. Do not distribute.*
+</div>
