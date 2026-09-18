@@ -1,4 +1,4 @@
-Dưới đây là toàn bộ nội dung file README.md hoàn chỉnh cho repository máy chủ Lavalink, đã được sửa triệt để lỗi hiển thị code, chuẩn hóa các thẻ đóng/mở HTML và bố trí lại hàng nút chuyển đổi trực quan:
+
 ```markdown
 <div align="center">
 
