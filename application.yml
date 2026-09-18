@@ -11,7 +11,7 @@ lavalink:
       repository: "https://maven.lavalink.dev/releases"
 
   server:
-    password: "matkhau_cua_ban_123"
+    password: "meowbotxyz"
     sources:
       youtube: false   # BẮT BUỘC tắt source cũ, vì plugin ở trên sẽ đảm nhiệm thay thế
       soundcloud: true
