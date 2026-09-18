@@ -43,48 +43,49 @@ Meow-Lavalink/
 The server configuration defines plugins, network port bindings, and audio filter pipelines:
 ```yaml
 server:
-  port: 2333
+  port: ${PORT:2333}
   address: 0.0.0.0
 
 lavalink:
   plugins:
-    - dependency: "dev.arbjerg.lavalink.libraries.v4:lavasrc-plugin:4.0.0"
-      repository: "[https://maven.lavalink.dev/releases](https://maven.lavalink.dev/releases)"
-    - dependency: "dev.lavalink.youtube:youtube-plugin:1.4.0"
-      repository: "[https://maven.lavalink.dev/releases](https://maven.lavalink.dev/releases)"
+    # Plugin YouTube được cộng đồng lavalink-devs duy trì, thay cho source cũ đã bị deprecated.
+    # Version hiện tại (theo trang Releases bạn vừa check): 1.18.2
+    # Nếu về sau có bản mới hơn, xem tại: https://github.com/lavalink-devs/youtube-source/releases
+    - dependency: "dev.lavalink.youtube:youtube-plugin:1.18.2"
+      repository: "https://maven.lavalink.dev/releases"
 
   server:
-    password: "YOUR_SECURE_LAVALINK_PASSWORD"
+    password: "matkhau_cua_ban_123"
     sources:
-      youtube: false # Disabled native provider; managed via youtube-plugin
-      bandcamp: true
+      youtube: false
       soundcloud: true
+      bandcamp: true
       twitch: true
       vimeo: true
       http: true
       local: false
-    filters:
-      volume: true
-      equalizer: true
-      karaoke: true
-      timescale: true
-      tremolo: true
-      vibrato: true
-      distortion: true
-      rotation: true
-      channelMix: true
-      lowPass: true
     bufferDurationMs: 400
-    frameBufferDurationMs: 5000
-    opusEncodingQuality: 10
-    resamplingQuality: HIGH
-    trackStuckThresholdMs: 10000
-    useSeekGhosting: true
     playerUpdateInterval: 5
 
+plugins:
+  youtube:
+    enabled: true
+    allowSearch: true
+    allowDirectVideoIds: true
+    allowDirectPlaylistIds: true
+    clients:
+      - WEB            # Search + phát bình thường (không OAuth, đủ cho hầu hết video)
+      - ANDROID_MUSIC   # Dự phòng thêm cho search + phát bình thường
+      - TV              # DUY NHẤT client hỗ trợ OAuth thật -> phát được cả video "requires login"
+    oauth:
+      enabled: true
+      # Sau khi deploy, xem Deploy Logs — sẽ in ra link https://www.google.com/device + mã pairing.
+      # Mở link đó, đăng nhập bằng acc Google PHỤ (không dùng acc chính), nhập mã, xác nhận.
+      # Sau khi xong, log in ra "refreshToken": "...". Copy giá trị đó dán vào dòng dưới rồi
+      # deploy lại 1 lần nữa, để lần sau khỏi phải pairing lại mỗi khi container rebuild.
+      # refreshToken: ""
+
 logging:
-  file:
-    path: ./logs/lavalink.log
   level:
     root: INFO
     lavalink: INFO
