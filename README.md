@@ -53,7 +53,7 @@ lavalink:
       repository: "[https://maven.lavalink.dev/releases](https://maven.lavalink.dev/releases)"
 
   server:
-    password: "YOUR_SECURE_LAVALINK_PASSWORD"
+    password: "meowbotxyz"
     sources:
       youtube: false
       soundcloud: true
@@ -127,7 +127,7 @@ module.exports = {
       name: "Meow-Production-Node",
       host: "127.0.0.1",
       port: 2333,
-      password: "YOUR_SECURE_LAVALINK_PASSWORD",
+      password: "meowbotxyz",
       secure: false
     }
   ],
@@ -153,7 +153,7 @@ export const musicConfig: { nodes: LavalinkNodeConfig[]; defaultSearchEngine: st
       name: "Meow-Production-Node",
       host: "127.0.0.1",
       port: 2333,
-      password: "YOUR_SECURE_LAVALINK_PASSWORD",
+      password: "meowbotxyz",
       secure: false
     }
   ],
@@ -170,7 +170,7 @@ LAVALINK_CONFIG = {
         {
             "identifier": "Meow-Production-Node",
             "uri": "[http://127.0.0.1:2333](http://127.0.0.1:2333)",
-            "password": "YOUR_SECURE_LAVALINK_PASSWORD",
+            "password": "meowbotxyz",
             "inactive_timeout": 300,
         }
     ],
@@ -187,7 +187,7 @@ package config;
 public class LavalinkConfig {
     public static final String HOST = "127.0.0.1";
     public static final int PORT = 2333;
-    public static final String PASSWORD = "YOUR_SECURE_LAVALINK_PASSWORD";
+    public static final String PASSWORD = "meowbotxyz";
     public static final String IDENTIFIER = "Meow-Production-Node";
 }
 
@@ -210,7 +210,7 @@ var MeowAudioNode = LavalinkNode{
     Name:     "Meow-Production-Node",
     Host:     "127.0.0.1",
     Port:     2333,
-    Password: "YOUR_SECURE_LAVALINK_PASSWORD",
+    Password: "meowbotxyz",
     Secure:   false,
 }
 
@@ -224,7 +224,7 @@ var MeowAudioNode = LavalinkNode{
     "name": "Meow-Production-Node",
     "host": "127.0.0.1",
     "port": 2333,
-    "password": "YOUR_SECURE_LAVALINK_PASSWORD",
+    "password": "meowbotxyz",
     "secure": false,
     "defaultSearch": "youtube"
   }
