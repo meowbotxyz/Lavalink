@@ -8,7 +8,7 @@ lavalink:
       snapshot: false
 
   server:
-    password: "${LAVALINK_PASSWORD:meowbotxyz}"
+    password: "meowbotxyz"
     sources:
       # Lavalink's built-in YouTube source is deprecated.
       youtube: false
