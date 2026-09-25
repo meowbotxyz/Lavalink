@@ -10,7 +10,6 @@ lavalink:
   server:
     password: "meowbotxyz"
     sources:
-      # Lavalink's built-in YouTube source is deprecated.
       youtube: false
       soundcloud: true
       bandcamp: true
@@ -28,20 +27,12 @@ plugins:
     allowSearch: true
     allowDirectVideoIds: true
     allowDirectPlaylistIds: true
-
-    # WEB is the primary client. ANDROID_MUSIC is a fallback.
-    # TV supports OAuth, but should not be the first client.
     clients:
       - WEB
       - ANDROID_MUSIC
       - TV
-
     oauth:
       enabled: true
-      # After completing OAuth once, paste the refresh token here if you
-      # want to avoid repeating the device authorization flow.
-      # refreshToken: "${YOUTUBE_REFRESH_TOKEN}"
-      # skipInitialization: true
 
 logging:
   level:
